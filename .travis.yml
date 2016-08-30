@@ -1,0 +1,22 @@
+language: cpp
+compiler: gcc
+sudo: required
+dist: trusty
+
+addons:
+ apt:
+  sources:
+   - ubuntu-toolchain-r-test
+  packages:
+   - scons
+   - python
+   - python-pip
+
+before_script:
+ - pip install --upgrade pip
+ - pip install jinja2
+ - pip install --egg SCons
+ - python --version
+ - python -c "import jinja2"
+
+script: "python -c \"import jinja2\""
