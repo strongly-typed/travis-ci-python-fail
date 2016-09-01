@@ -8,12 +8,17 @@ addons:
   sources:
    - ubuntu-toolchain-r-test
   packages:
-   - scons
    - python
-   - python-jinja2
+   - python-pip
 
 before_script:
  - python --version
- - python -c "import jinja2"
+ - pip install --upgrade pip
+ - pip install jinja2
+ - pip install --egg SCons
+ - python -v -c "import jinja2"
+ - python2 -v -c "import jinja2"
+ - which scons
 
+# script: "python -v test.py"
 script: "python -c \"import jinja2\""
